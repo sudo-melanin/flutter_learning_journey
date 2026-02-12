@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-void main(){
+void main() {
   runApp(const MyLearningApp());
 }
 
 class MyLearningApp extends StatelessWidget {
   const MyLearningApp({super.key});
-  
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -15,17 +15,31 @@ class MyLearningApp extends StatelessWidget {
         appBar: AppBar(
           leading: const Icon(Icons.menu),
           title: const Text("My Learning Journey"),
-          centerTitle: true, 
-          actions: [const Icon(Icons.search),
-          const Icon(Icons.notifications)],      
+          centerTitle: true,
+          actions: const [
+            Icon(Icons.search),
+            Icon(Icons.notifications),
+          ],
         ),
-        body: const Center(
-          child: Text("Hello, Flutter!"),
-        )
-      )
-
-
+        // FIXED: Wrapped Column in Center to fix horizontal alignment
+        body: Center( 
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: const [
+              Text(
+                "Foundation 1",
+                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              ),
+              // SPACING BRICK: 16 pixels of height
+              SizedBox(height: 16), 
+              Text("Second element for the Column parent widget"),
+              // SPACING BRICK: 24 pixels of height
+              SizedBox(height: 24),
+              Icon(Icons.check_circle, color: Colors.green, size: 48),
+            ],
+          ),
+        ),
+      ),
     );
-    
   }
 }
