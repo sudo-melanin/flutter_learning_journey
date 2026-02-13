@@ -25,17 +25,29 @@ class MyLearningApp extends StatelessWidget {
         body: Center( 
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: const [
-              Text(
+            children:  [
+              const Text(
                 "Foundation 1",
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               ),
               // SPACING BRICK: 16 pixels of height
-              SizedBox(height: 16), 
-              Text("Second element for the Column parent widget"),
+              const SizedBox(height: 16), 
+              const Text("Second element for the Column parent widget"),
               // SPACING BRICK: 24 pixels of height
-              SizedBox(height: 24),
-              Icon(Icons.check_circle, color: Colors.green, size: 48),
+              const SizedBox(height: 24),
+              const Icon(Icons.check_circle, color: Colors.green, size: 48),
+              const SizedBox(height: 30),
+              ElevatedButton(
+                onPressed: (){
+                  print("New Brick added to the Column parent widget");
+                }, // Disabled button
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.blueAccent, // Set background color to blue accent
+                  foregroundColor: Colors.white, // Set text color to white
+                  padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 15), // Add padding for better appearance
+                ),
+                child: Text("New Button"),
+              ),
             ],
           ),
         ),
